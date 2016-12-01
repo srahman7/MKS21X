@@ -3,8 +3,8 @@ public class CirculatingBook extends LibraryBook{
     private String dueDate;
     public CirculatingBook(String a, String b, String c, String d){
 	super(a,b,c,d);
-	currentHolder="";
-	dueDate="";
+	currentHolder=null;
+	dueDate=null;
     }
     public String getHolder(){
 	return currentHolder;
@@ -23,11 +23,11 @@ public class CirculatingBook extends LibraryBook{
 	dueDate=due;
     }
     public void returned(){
-	currentHolder="";
-	dueDate="";
+	currentHolder=null;
+	dueDate=null;
     }
     public String circulationStatus(){
-	if (currentHolder!="" && dueDate!=""){
+	if (currentHolder!=null && dueDate!=null){
 	    return "The book is checked out under " + currentHolder + " and is due " + dueDate;
 	}
 	else{
@@ -36,7 +36,7 @@ public class CirculatingBook extends LibraryBook{
     }
     public String toString(){
 	String ans =super.toString();
-	if (currentHolder!="" && dueDate!=""){
+	if (currentHolder!=null && dueDate!=null){
 	    ans+=". It is being borrowed by " + currentHolder + " and is due " + dueDate;
 	}
 	return ans;

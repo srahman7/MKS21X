@@ -33,7 +33,7 @@ public class Book{
     }
     public String toString(){
 	String ans="";
-	ans+="The book, "+ title + ", is by " + author + ", and has an ISBN of " + ISBN;
+	ans+=title + ", is by " + author + ", has an ISBN of " + ISBN;
 	return ans;
     }
 

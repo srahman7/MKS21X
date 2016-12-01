@@ -17,7 +17,7 @@ public abstract class LibraryBook extends Book implements Comparable<LibraryBook
 	return getCallNum().compareTo(a.callNumber);
     }
     public String toString(){
-	return super.toString() + " and has a call number of " + callNumber;
+	return super.toString() + ", and has a call number of " + callNumber;
     }
 
 }
