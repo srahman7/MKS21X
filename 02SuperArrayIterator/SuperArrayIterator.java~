@@ -1,0 +1,24 @@
+import java.util.Iterator;
+
+public class SuperArrayIterator implements Iterator<String>{
+    private int element;
+    private SuperArray supa;
+
+    public SuperArrayIterator(SuperArray a){
+	supa = a;
+	element=0;
+    }
+    public boolean hasNext(){
+	if (element < supa.size()){
+	    return true;
+	}
+	else {
+	    return false;
+	}
+    }
+    public String next(){
+	return supa.get(element+1);
+	element++;
+    }
+    
+	
