@@ -15,7 +15,7 @@ public class SuperArrayIterator implements Iterator<String>{
     public String next(){
 	if (hasNext()){
 	    element++;
-	    return supa.get(element);
+	    return supa.get(element-1);
 	}
 	else{
 	    throw new NoSuchElementException();
