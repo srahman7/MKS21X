@@ -35,19 +35,19 @@ public class SuperArray implements Iterable<String>{
      *this will change the size. This function should always work
      *And will resize the SuperArray if needed.*/
     /*    public void add(int n){
-	 if (size <  data.length){
-	     data[size] = n;
-	     size+=1;
-	 }
-	 else{
-	     grow();
-	     data[size]=n;
-	     size+=1;
-	 }
-	 }*/
+	  if (size <  data.length){
+	  data[size] = n;
+	  size+=1;
+	  }
+	  else{
+	  grow();
+	  data[size]=n;
+	  size+=1;
+	  }
+	  }*/
 
-     //2
-     /**Resize the data, by making a new array, then copying over elements, use this as your d    */
+    //2
+    /**Resize the data, by making a new array, then copying over elements, use this as your d    */
 
     private void grow(){
 	String[] newL= new String[data.length*2];
@@ -110,7 +110,7 @@ public class SuperArray implements Iterable<String>{
     }
     public String get(int index){
     	if (index < 0 || index >= size()) {
-    		throw new IndexOutOfBoundsException();
+	    throw new IndexOutOfBoundsException();
     	}
 	return data[index];
     }
@@ -125,7 +125,7 @@ public class SuperArray implements Iterable<String>{
     
     public String set(int index, String element){
     	if (index < 0 || index >= size()) {
-    		throw new IndexOutOfBoundsException();
+	    throw new IndexOutOfBoundsException();
     	}
 	data[index]=element;
 	return data[index];
@@ -206,17 +206,21 @@ public class SuperArray implements Iterable<String>{
         }
         data = temp;
     }
+    public SuperArrayIterator iterator(){
+	return new SuperArrayIterator(this);
+    }
+	
     /*public static void main(String[]args){
-	SuperArray L1,L2;
-	String[] list= new String[3];
-	list[0]="Hello";
-	list[1]="world";
-	list[2]="It's me!";
-	L1= new SuperArray(list);
-	System.out.println(L1.toString());
-	L1.add(2,"great");
-	System.out.println(L1.toString());
-	L1.remove(1);
-	System.out.println(L1.toString());
-	}*/
+      SuperArray L1,L2;
+      String[] list= new String[3];
+      list[0]="Hello";
+      list[1]="world";
+      list[2]="It's me!";
+      L1= new SuperArray(list);
+      System.out.println(L1.toString());
+      L1.add(2,"great");
+      System.out.println(L1.toString());
+      L1.remove(1);
+      System.out.println(L1.toString());
+      }*/
 }

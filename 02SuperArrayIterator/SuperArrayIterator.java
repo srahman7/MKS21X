@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class SuperArrayIterator implements Iterator<String>{
     private int element;
@@ -12,16 +13,17 @@ public class SuperArrayIterator implements Iterator<String>{
 	return element < supa.size();
     }
     public String next(){
-	element++;
-	return supa.get(element);
+	if (hasNext()){
+	    element++;
+	    return supa.get(element);
+	}
+	else{
+	    throw new NoSuchElementException();
+	}
     }
 
     public void remove(){
 	throw new UnsupportedOperationException();
-    }
-    public static void main(String[]args){
-	SuperArray a= new SuperArray(10);
-	SuperArrayIterator b = new SuperArrayIterator(a);
     }
 }
     
