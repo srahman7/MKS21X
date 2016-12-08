@@ -59,11 +59,6 @@ public class Barcode implements Comparable<Barcode>{
 	}
 	return ans;
     }
-	    
-    // postcondition: Creates a copy of a bar code.
-    public Barcode clone(Barcode x){
-	return new Barcode(x.zip);
-    }
     
 
     // postcondition: computes and returns the check sum for _zip
