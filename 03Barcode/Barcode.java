@@ -9,8 +9,6 @@ public class Barcode implements Comparable<Barcode>{
     //               or zip contains a non digit
     //               _zip and _checkDigit are initialized.
     public Barcode(String zips) {
-	zip=zips;
-	checkDigit=checkSum();
 	if (zips.length() !=5){
 	    throw new IllegalArgumentException();
 	}
@@ -18,9 +16,12 @@ public class Barcode implements Comparable<Barcode>{
 	    if (zips.charAt(x)<48 || zips.charAt(x)>57){
 		throw new IllegalArgumentException();
 	    }
+	}
+	
+	zip=zips;
+	checkDigit=checkSum();
 		
 	
-	}
     }
 
     private String key(int num){
@@ -109,5 +110,6 @@ public class Barcode implements Comparable<Barcode>{
 	System.out.println(a.clone(b));
 	System.out.println(a.toString());
 	System.out.println(a.compareTo(b));
+	
 	}*/
 }
