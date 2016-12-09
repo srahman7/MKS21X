@@ -110,6 +110,14 @@ public class Barcode implements Comparable<Barcode>{
 	return sum%10;
 	
     }
+    private static int checkSum(String z){
+	int sum=0;
+	for (int x =0; x < 5; x++){
+	    sum+=Integer.parseInt(z.substring(x,x+1));
+	}
+	return sum%10;
+	
+    }
 
     //postcondition: format zip + check digit + Barcode 
     //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
@@ -126,14 +134,22 @@ public class Barcode implements Comparable<Barcode>{
 
     public static String toZip(String s){
 	String ans="";
-	if (s.length()>32 || s.length()<32){
+	if (s.length()!=32){
 	    throw new IllegalArgumentException("Incorrect zip length");
 	}
 	if (s.charAt(0)!='|' || s.charAt(31)!='|'){
 	    throw new IllegalArgumentException("The barcode you entered did not begin or end with a |");
 	}
+	for (int x =0; x<32; x++){
+	    if (s.charAt(x)!='|' &&  s.charAt(x)!=':'){
+		throw new IllegalArgumentException("You entered an invalid character");
+	    }
+	}
 	for (int x=1;x<26;x+=5){
 	    ans+=key(s.substring(x,x+5));
+	}
+	if(checkSum(ans)!=key(s.substring(27,32))){
+	    throw new IllegalArgumentException("checkSum doesn't match up!");
 	}
 	return ans;
     }
@@ -179,6 +195,7 @@ public class Barcode implements Comparable<Barcode>{
 	System.out.println(toCode("90210"));
 	System.out.println(c.toString());
 	System.out.println(toZip(toCode("90210")));
-	System.out.println(toZip("|"));
+	System.out.println(toZip("||:|::||:::::|:|:::||||:::|:|::|"));
+	
 	}
 }
