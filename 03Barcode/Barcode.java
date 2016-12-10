@@ -148,9 +148,12 @@ public class Barcode implements Comparable<Barcode>{
 	for (int x=1;x<26;x+=5){
 	    ans+=key(s.substring(x,x+5));
 	}
-	if(checkSum(ans)!=key(s.substring(27,32))){
-	    throw new IllegalArgumentException("checkSum doesn't match up!");
+	if (checkSum(ans)!=key(s.substring(26,31))){
+	    throw new IllegalArgumentException("checkSum failed!");
 	}
+        //System.out.println(checkSum(ans));
+	//System.out.println(s.substring(26,31));
+
 	return ans;
     }
 
@@ -195,7 +198,7 @@ public class Barcode implements Comparable<Barcode>{
 	System.out.println(toCode("90210"));
 	System.out.println(c.toString());
 	System.out.println(toZip(toCode("90210")));
-	System.out.println(toZip("||:|::||:::::|:|:::||||:::|:|::|"));
+	System.out.println(toZip("||:|::||:::::|:|:::||||:::|:::||"));
 	
 	}
 }
