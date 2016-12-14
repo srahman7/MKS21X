@@ -27,7 +27,18 @@ public class Sorts{
 	  data[x]=smallest;
       }
   }
-
+    public static void insertionSort(int[] data){
+	for (int x =1: x < data.length; x++){
+	    int num=data[x];
+	    int before=x-1;
+	    while(data[x]<data[before]){
+		before++;
+	    }
+	}
+	}
+	    
+    }
+	
   
     public static String toString(int[] data){
 	String ans="[";
