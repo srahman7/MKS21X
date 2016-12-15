@@ -28,15 +28,17 @@ public class Sorts{
       }
   }
     public static void insertionSort(int[] data){
-	for (int x =1: x < data.length; x++){
+	for (int x =1; x < data.length; x++){
 	    int num=data[x];
+	    int correctIndex=x;
 	    int before=x-1;
-	    while(data[x]<data[before]){
-		before++;
+	    while(before>=0 && num<data[before]){
+		data[correctIndex]=data[before];
+		correctIndex=before;
+		before--;
 	    }
+	    data[correctIndex]=num;
 	}
-	}
-	    
     }
 	
   
@@ -55,8 +57,9 @@ public class Sorts{
 
     public static void main(String[]args){
 	int[] x={64,25,12,11,22};
-	System.out.println(toString(x));
-	selectionSort(x);
-	System.out.println(toString(x));
+	int[] y={3, 7, 4, 9, 5, 2, 6, 1};
+	System.out.println(toString(y));
+	insertionSort(y);
+	System.out.println(toString(y));
     }
 }
