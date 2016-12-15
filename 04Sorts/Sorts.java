@@ -42,6 +42,26 @@ public class Sorts{
     }
 	
   
+    public static void bubbleSort(int[] data){
+	int check=0;
+	int swaps=0;
+	for(int x=0; x<data.length;x++){
+	    for(int i=0;i<data.length-(x+1);i++){
+		int first=data[i];
+		int second=data[i+1];
+		if(second<first){
+		    data[i]=second;
+		    data[i+1]=first;
+		    swaps++;
+		}
+	    }
+	}
+	if (swaps==0){
+	    return;
+	}
+    }
+
+
     public static String toString(int[] data){
 	String ans="[";
 	for (int x =0; x < data.length; x++){
@@ -58,8 +78,11 @@ public class Sorts{
     public static void main(String[]args){
 	int[] x={64,25,12,11,22};
 	int[] y={3, 7, 4, 9, 5, 2, 6, 1};
+	int[] z={5,1,4,2,8}; 
+	int[] v={5,4,3,2,1};
+	int[] o={1,2,3};
 	System.out.println(toString(y));
-	insertionSort(y);
+	bubbleSort(y);
 	System.out.println(toString(y));
     }
 }
