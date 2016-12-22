@@ -52,9 +52,9 @@ public class Sorts{
 		if(second<first){
 		    data[i]=second;
 		    data[i+1]=first;
-		    swaps++;
 		}
 	    }
+	   swaps++;
 	}
 	if (swaps==0){
 	    return;
@@ -65,14 +65,9 @@ public class Sorts{
     public static String toString(int[] data){
 	String ans="[";
 	for (int x =0; x < data.length; x++){
-	    if (x == data.length - 1){
-		ans += data[x] + "]";
-	    }
-	    else{
-		ans+= data[x]+ ", ";
-	    }
+		ans+= data[x]+ ",";
 	}
-	return ans;
+	return ans + "]";
     }
 
     public static void main(String[]args){
@@ -81,8 +76,9 @@ public class Sorts{
 	int[] z={5,1,4,2,8}; 
 	int[] v={5,4,3,2,1};
 	int[] o={1,2,3};
-	System.out.println(toString(y));
-	bubbleSort(y);
-	System.out.println(toString(y));
+	int[] e={};
+	System.out.println(toString(e));
+	selectionSort(e);
+	System.out.println(toString(e));
     }
 }
